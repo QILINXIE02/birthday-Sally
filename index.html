@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Website</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -19,8 +20,9 @@
 
     <main>
         <section id="home" class="section active">
-            <h1>Welcome to the Sally and Qilin's Page!</h1>
-            <p>Celebrate with us 2024!</p>
+            <h1>Welcome to Sally and Qilin's Page!</h1>
+            <p>Celebrate with us in 2024!</p>
+            <div id="countdown"></div>
         </section>
 
         <section id="gallery" class="section">
@@ -31,13 +33,18 @@
 
         <section id="birthdayCard" class="section">
             <h2>Happy Birthday, Sally Wooster</h2>
-            <p>I hope you have a wonderful day on Nov 29, 2024 with me! -Qilin</p>
+            <p>I hope you have a wonderful day on Nov 29, 2024 with me! - Qilin</p>
         </section>
     </main>
 
     <footer>
-      <p>&copy;Sally-Happy-Birthday-23th</p>
-  </footer>
+        <p>&copy; 2024 Sally-Happy-Birthday-23th</p>
+    </footer>
+
+    <audio id="background-music" loop>
+        <source src="music/birthday-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script src="script.js"></script>
 </body>
