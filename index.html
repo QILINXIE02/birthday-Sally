@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('gallery')">Gallery</a></li>
+                <li><a href="#" onclick="showSection('birthdayCard')">Birthday Card</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section active">
+            <h1>Welcome to the Sally and Qilin's Page!</h1>
+            <p>Celebrate with us 2024!</p>
+        </section>
+
+        <section id="gallery" class="section">
+            <h2>Friendship Memories</h2>
+            <p>Here you can see our beautiful photos over the years!</p>
+            <img src="images/birthday.jpg" alt="Birthday Celebration" />
+        </section>
+
+        <section id="birthdayCard" class="section">
+            <h2>Happy Birthday, Sally Wooster</h2>
+            <p>I hope you have a wonderful day on Nov 29, 2024 with me! -Qilin</p>
+        </section>
+    </main>
+
+    <footer>
+      <p>&copy;Sally-Happy-Birthday-23th</p>
+  </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
