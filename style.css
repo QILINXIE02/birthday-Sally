@@ -57,10 +57,23 @@ h1, h2 {
   font-family: 'Great Vibes', cursive;
 }
 
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+img:hover {
+  transform: scale(1.05);
 }
 
 footer {
@@ -89,4 +102,16 @@ footer {
   font-size: 1.5em;
   color: #FFC107;
   margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  nav ul li {
+      display: block;
+      margin: 10px 0;
+  }
+
+  .gallery {
+      flex-direction: column;
+  }
 }

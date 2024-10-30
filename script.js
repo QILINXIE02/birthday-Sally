@@ -37,5 +37,13 @@ function updateCountdown() {
 // Update the countdown every second
 const x = setInterval(updateCountdown, 1000);
 
-// Auto-play background music
-document.getElementById("background-music").play();
+// Function to play background music after user interaction
+function playMusic() {
+  const audio = document.getElementById("background-music");
+  audio.play().catch(error => {
+      console.error("Error playing audio:", error);
+  });
+}
+
+// Add an event listener to play music when the page is clicked
+document.body.addEventListener('click', playMusic, { once: true });
