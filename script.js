@@ -1,49 +1,68 @@
+// Switch between sections
 function showSection(sectionId) {
-  // Hide all sections
-  const sections = document.querySelectorAll('.section');
-  sections.forEach(section => {
+  document.querySelectorAll('.section').forEach(section => {
       section.classList.remove('active');
   });
-
-  // Show the selected section
-  const selectedSection = document.getElementById(sectionId);
-  selectedSection.classList.add('active');
+  document.getElementById(sectionId).classList.add('active');
 }
 
-// Show the home section by default
+// Initialize home section
 showSection('home');
 
 // Countdown Timer
-const targetDate = new Date('2024-11-29T00:00:00').getTime();
 const countdownElement = document.getElementById('countdown');
+const targetDate = new Date('2024-11-29').getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
   const distance = targetDate - now;
-
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  countdownElement.innerHTML = `Countdown to Birthday: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
   if (distance < 0) {
-      clearInterval(x);
-      countdownElement.innerHTML = "It's time to celebrate!";
+      countdownElement.innerHTML = "Happy Birthday!";
   }
 }
 
-// Update the countdown every second
-const x = setInterval(updateCountdown, 1000);
+setInterval(updateCountdown, 1000);
 
-// Function to play background music after user interaction
-function playMusic() {
-  const audio = document.getElementById("background-music");
-  audio.play().catch(error => {
-      console.error("Error playing audio:", error);
-  });
+// Carousel Logic
+const carousel = document.querySelector('.carousel-images');
+const images = document.querySelectorAll('.carousel-images img');
+const nextButton = document.getElementById('next');
+const prevButton = document.getElementById('prev');
+let currentIndex = 0;
+
+function updateCarousel() {
+  const imageWidth = images[0].clientWidth;
+  carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 }
 
-// Add an event listener to play music when the page is clicked
-document.body.addEventListener('click', playMusic, { once: true });
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateCarousel();
+});
+
+document.getElementById("play-music").addEventListener("click", () => {
+  const audio = document.getElementById("background-music");
+  
+  if (audio.paused) {
+      audio.play().catch(error => {
+          console.error("Error playing audio:", error);
+          alert("Music playback failed. Please interact with the page first (browser restriction).");
+      });
+      document.getElementById("play-music").textContent = "⏸ Pause Music!! ⏸";
+  } else {
+      audio.pause();
+      document.getElementById("play-music").textContent = "🎶 Play Music!! 🎶";
+  }
+});

@@ -113,3 +113,41 @@ footer {
       flex-direction: column;
   }
 }
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.carousel {
+  overflow: hidden;
+  width: 80%;
+  max-width: 600px;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+  width: calc(100% / 3); /* Divide container by 3 to show 3 images */
+  flex-shrink: 0;
+}
+
+.carousel-button {
+  background: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5em;
+  transition: background 0.3s;
+}
+
+.carousel-button:hover {
+  background: #FFC107;
+}
