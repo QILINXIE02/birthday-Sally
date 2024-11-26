@@ -244,3 +244,15 @@ footer {
     font-size: 1em;
   }
 }
+
+
+.home-image {
+  width: 80%; /* Adjust width as needed */
+  max-width: 600px; /* Ensure it doesn't get too big */
+  margin: 20px auto; /* Center the image and add space around it */
+  display: block; /* Center-align the image */
+  border-radius: 12px; /* Give it rounded corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+
