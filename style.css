@@ -1,130 +1,148 @@
+/* General Reset */
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  color: #333;
 }
 
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f3f4f6; /* Subtle background */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Header Styling */
 header {
-  background: rgba(76, 175, 80, 0.8);
+  background: #2e7d32; /* Deep, sophisticated green */
   color: white;
-  padding: 15px 0;
+  padding: 30px 0;
   text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: #fff;
 }
 
 nav ul {
   list-style-type: none;
   padding: 0;
+  margin-top: 15px;
 }
 
 nav ul li {
-  display: inline;
-  margin: 0 15px;
+  display: inline-block;
+  margin: 0 20px;
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav ul li a:hover {
   color: #FFC107;
+  text-shadow: 0px 0px 8px #FFC107;
 }
 
+/* Section Styling */
 .section {
   display: none;
-  padding: 20px;
+  padding: 60px 30px;
   text-align: center;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.5s forwards;
+  transform: translateY(40px);
+  animation: fadeIn 1s forwards;
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  width: 90%;
+  max-width: 1200px;
 }
 
 .section.active {
   display: block;
 }
 
-h1, h2 {
-  margin: 20px 0;
+h2 {
   font-family: 'Great Vibes', cursive;
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color: #FF6F61; /* Thoughtful, subtle yet vibrant color */
 }
 
+p {
+  font-size: 1.3em;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 20px auto;
+  color: #555;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* Countdown Timer Styling */
+#countdown {
+  font-size: 2em;
+  color: #FF6F61;
+  margin-top: 25px;
+  font-weight: bold;
+  text-shadow: 0px 0px 12px rgba(255, 111, 97, 0.6);
+}
+
+/* Gallery */
 .gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 30px;
+  margin-top: 40px;
 }
 
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 600px; /* Max size of the image */
 }
 
 img:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
-footer {
-  background: rgba(76, 175, 80, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-#countdown {
-  font-size: 1.5em;
-  color: #FFC107;
-  margin-top: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  nav ul li {
-      display: block;
-      margin: 10px 0;
-  }
-
-  .gallery {
-      flex-direction: column;
-  }
-}
-
+/* Carousel */
 .carousel-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .carousel {
   overflow: hidden;
   width: 80%;
-  max-width: 600px;
+  max-width: 900px;
+  border-radius: 12px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
 }
 
 .carousel-images {
@@ -133,21 +151,96 @@ footer {
 }
 
 .carousel-images img {
-  width: calc(100% / 3); /* Divide container by 3 to show 3 images */
+  width: calc(100% / 3);
   flex-shrink: 0;
 }
 
 .carousel-button {
-  background: #4CAF50;
+  background: #2e7d32;
   border: none;
   color: white;
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
   border-radius: 50%;
-  font-size: 1.5em;
-  transition: background 0.3s;
+  font-size: 1.8em;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.2s;
 }
 
 .carousel-button:hover {
   background: #FFC107;
+  transform: scale(1.1);
+}
+
+/* Footer Styling */
+footer {
+  background: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+/* Button for Play Music */
+#play-music {
+  background: #FF6F61;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  font-family: 'Great Vibes', cursive;
+  padding: 18px 36px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 30px;
+}
+
+#play-music:hover {
+  background: #FFC107;
+  transform: scale(1.1);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .gallery {
+    flex-direction: column;
+  }
+
+  .carousel-container {
+    flex-direction: column;
+  }
+
+  .section {
+    width: 95%;
+    padding: 40px 20px;
+  }
+
+  .carousel-images img {
+    width: 100%; /* Ensure images are full width on mobile */
+  }
+
+  footer {
+    font-size: 1em;
+  }
 }
